@@ -1,0 +1,33 @@
+<style>
+    hr{
+        color: darkred;
+    }
+</style>
+<div class="container body-content">
+    <div class="row">
+        <div class="col-md-12">
+            <hr>
+            <article>
+                <div class="date">
+                   <h2>Email: <p style="color: darkred">&raquo;{{user.email}}</p></h2>
+
+                </div>
+                <hr>
+                <div>
+                    <h2>Профилна снимка: <img src="/uploads/{{user.img.name}}" width="75" height="75"></h2>
+
+                </div>
+<hr>
+
+                <small class="author">
+                    <h2>Пълно име: <p style="color: darkred">&raquo;{{user.fullName}}</p></h2>
+                </small>
+<hr>
+                <small>
+                    <h3>Брой създадени бри4костатии <p style="color: darkred">&raquo;{{user.articles.length}}</p></h3>
+                </small>
+
+            </article>
+        </div>
+    </div>
+</div>
