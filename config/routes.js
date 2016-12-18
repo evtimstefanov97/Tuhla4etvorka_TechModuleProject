@@ -16,14 +16,14 @@ module.exports=(app)=>{
 
     app.get('/user/register',userController.registerGet);
 
-    app.post('/user/register',userController.registerPost);
+    app.post('/user/register', upload.single('myFile'),userController.registerPost);
 
     app.get('/user/login',userController.loginGet);
     app.post('/user/login',userController.loginPost);
     app.get('/user/logout',userController.logout);
     app.post('/',userController.logout);
     app.get('/article/create',articleController.createGet);
-    app.post('/article/create',articleController.createPost);
+    app.post('/article/create',upload.single('myFile'),articleController.createPost);
     app.get('/article/details/:id',articleController.details);
     app.get('/article/edit/:id',articleController.editGet);
     app.post('/article/edit/:id',articleController.editPost);
