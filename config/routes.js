@@ -28,6 +28,7 @@ module.exports=(app)=>{
     app.get('/user/login',userController.loginGet);
     app.post('/user/login',userController.loginPost);
     app.get('/user/logout',userController.logout);
+    app.get('/user/details',userController.detailsGet);
     app.post('/',userController.logout);
     app.get('/article/create',articleController.createGet);
     app.post('/article/create',upload.single('myFile'),articleController.createPost);
