@@ -3,13 +3,20 @@ const homeController=require('./../controllers/home');
 const adminController=require('./../controllers/admin/admin');
 const articleController=require('./../controllers/article');
 const allController=require('./../controllers/all_categories');
-
-
+var multer=require('multer');
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/uploads/');
+    },
+    filename: function (req, file, cb) {
+        cb(null,Date.now()+file.originalname);
+    }
+});
 var mongoose = require("mongoose");
 const paginate=require('express-paginate');
 
 module.exports=(app)=>{
-
+    var upload=multer({storage:storage});
     app.get('/',homeController.index);
     app.get('/home/all_categories',allController.index);
     app.get('/category/:id',allController.listCategoryArticles);
