@@ -1,0 +1,50 @@
+<style>
+    h1 { color: #080808; font-family: 'Helvetica Neue', sans-serif; font-size: 46px; font-weight: 100;font-weight: bolder; line-height: 50px; letter-spacing: 1px; padding: 0 0 0px;}
+    img{
+        margin: 0 20px 20px 0;
+    float:left;
+    }
+    .content{
+        text-align: justify;
+        text-indent:2em;
+    }
+    .date { color: #d9230f; display: inline-block; font-family: 'Georgia', serif; font-style: italic; font-size: 18px; line-height: 22px;}
+</style>
+<div class="container body-content">
+    <div class="row">
+        <div class="col-md-12">
+            <article>
+                <header>
+                    <h1>{{article.title}}</h1>
+                </header>
+                <div class="date">
+                    {{article.date}}
+
+                </div>
+                <hr>
+                    <img src="/uploads/{{article.image.name}}" class="img-rounded" width="400px" height="400px">
+                <p class="content">
+                    {{article.content}}
+                </p>
+
+                <small class="author">
+                    {{author.fullName}}
+                </small>
+                <small class="author" style="font-weight:500;font-size: large;color: #91170a">
+                    {{article.author.fullName}}
+                </small>
+                <footer>
+                    <div class="pull-right">
+                        {{#if isUserAuthorized}}
+                        <a class="btn btn-success btn-xs"
+                           href="/article/edit/{{article.id}}">Edit &raquo;</a>
+                        <a class="btn btn-danger btn-xs"
+                           href="/article/delete/{{article.id}}">Delete &raquo;</a>
+                        {{/if}}
+                        <a class="btn btn-default btn-xs" href="javascript:history.go(-1)">Back &raquo;</a>
+                    </div>
+                </footer>
+            </article>
+        </div>
+    </div>
+</div>

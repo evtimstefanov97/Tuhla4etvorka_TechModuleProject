@@ -1,0 +1,54 @@
+<div class="container body-content span=8 offset=2">
+    <div class="well">
+        <form class="form-horizontal" method="post" action="/user/register" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Регистрирай се</legend>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Email</label>
+                    <div class="col-sm-4 ">
+                        <input type="text" class="form-control" id="inputEmail"
+                               placeholder="Email" name="email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Пълно име</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control"
+                               id="fullName" placeholder="Пълно име" name="fullName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Парола</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control"
+                               id="inputPassword" placeholder="Парола" name="password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Потвърди паролата</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control"
+                               id="repeatePpassword" placeholder="Потвърди паролата" name="repeatedPassword">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Избери готина профилна</label>
+                    <div class="col-sm-4">
+                        <input name="myFile" type="file" class="form-control">
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <a class="btn btn-default" href="/">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,80 @@
+
+<style>
+    #content{
+        width: 250px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    ol {
+        counter-reset: item;
+    }
+    ol li {
+        margin-right: 50px;
+        font-weight: bolder;
+        font-size:25px;
+    }
+    ol li:before {
+        content: " Place";
+        counter-increment: item;
+        font-weight: bold;
+    }
+
+
+</style>
+
+<div class="container body-content">
+    <h1 style="margin-left: 43%;font-weight: bolder"> {{category.name}}</h1>
+    <div class="row" style="margin-top: 120px">
+    <ol>
+
+        {{#each articles}}
+
+                    <div class="col-md-8" >
+
+
+
+
+                        <article style="margin-left: 55%;border-top: 2px solid darkred;border-bottom:2px solid darkred;border-radius: 10px;margin-bottom: 15px">
+
+                            <header>
+
+
+                                <span>
+                            <img src="/uploads/{{this.author.img.name}}" class="img-circle" height="35" width="35" style="margin-top: 3px"/>
+                        </span>
+                                <small class="author" style="font-style: italic;font-weight: bold;font-size: large">
+                                    {{ this.author.fullName }}
+                                </small>
+                                <a href="/article/details/{{this.id}}"><h3 style="font-weight: bolder">{{this.title}}&raquo;</h3></a>
+
+                            </header>
+
+
+                            <img src="/uploads/{{this.image.name}}" class="img-rounded" width="300px" height="300px">
+                            <li>
+                            <p id="content">
+                                {{ this.content }}
+                            </p>
+                            </li>
+
+                            <h1>(Likes: {{this.likes.length}}!)</h1>
+
+
+                        </article>
+
+                        <br>
+
+                        <br>
+                    </div>
+
+
+
+        {{/each}}
+
+
+    </ol>
+    </div>
+
+
+</div>

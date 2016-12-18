@@ -1,0 +1,34 @@
+<div class="container body-content">
+    <div class="row">
+        {{#each categories}}
+            <div class="col-md-6">
+                <header>
+                    <h2>
+                        <a href="/category/{{ this.id }}">
+                            {{ this.name }} ({{
+                        this.articles.length }})
+                        </a>
+                    </h2>
+                </header>
+            </div>
+        {{/each}}
+    </div>
+
+    <ul class="pagination">
+        {{#paginate pagination type="first"}}
+            <li {{#if disabled}}class="disabled"{{/if}}><a href="{{this.id}}?page={{n}}">First</a></li>
+        {{/paginate}}
+        {{#paginate pagination type="previous"}}
+            <li {{#if disabled}}class="disabled"{{/if}}><a href="{{this.id}}?page={{n}}">Prev</a></li>
+        {{/paginate}}
+        {{#paginate pagination type="middle" limit=limit}}
+            <li {{#if active}}class="active"{{/if}}><a href="{{this.id}}?page={{n}}">{{n}}</a></li>
+        {{/paginate}}
+        {{#paginate pagination type="next"}}
+            <li {{#if disabled}}class="disabled"{{/if}}><a href="{{this.id}}?page={{n}}">Next</a></li>
+        {{/paginate}}
+        {{#paginate pagination type="last"}}
+            <li {{#if disabled}}class="disabled"{{/if}}><a href="{{this.id}}?page={{n}}">Last</a></li>
+        {{/paginate}}
+    </ul>
+</div>
