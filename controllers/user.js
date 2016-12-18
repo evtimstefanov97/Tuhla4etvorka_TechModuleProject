@@ -1,7 +1,17 @@
 const User = require('mongoose').model('User');
 const Role=require('mongoose').model('Role');
 const encryption = require('./../utilities/encryption');
-
+const multer=require('multer');
+var fs = require("fs");
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/uploads/');
+    },
+    filename: function (req, file, cb) {
+        cb(null,Date.now()+file.originalname);
+    }
+});
+var upload=multer({storage:storage});
 module.exports = {
 
     registerGet: (req, res) => {
@@ -30,7 +40,9 @@ module.exports = {
                var userObject = new User();
                userObject.img.data=fs.readFileSync(req.file.path);
                 console.log(req.file.path);
-
+	       userObject.img.path=req.file.path;
+               userObject.img.contentType='image/png';
+               userObject.img.name=req.file.filename;
                userObject.salt=salt;
                userObject.email=registerArgs.email;
                userObject.passwordHash=passwordHash;
