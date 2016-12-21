@@ -97,7 +97,7 @@ module.exports= {
         let articleArgs=req.body;
         let title=req.body.title;
         let content=req.body.content;
-        Article.findById(id).then(article=>{
+        Article.findById(id).populate('category').then(article=>{
             if(article.category.id!==articleArgs.category){
                 article.category.articles.remove(article.id);
                 article.category.save();
